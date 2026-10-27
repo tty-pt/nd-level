@@ -63,6 +63,27 @@ either way.
 * `on_status(player_ref)` prints `Level\t<n>`, read back out of that table.
 * `level(ref)` and `level_up(ref, times)` are the cross-module API.
 
+## In-Game Commands (`man-src/`)
+
+Level progression and experience metrics are inspected via the `status` command (`man-src/status.10`).
+
+## Packaged Assets (`art/`)
+
+Experience gauge assets and rank insignias.
+
+## Wire Protocol & BCP Integration
+
+Level values are incorporated into `BCP_STATS` payloads and client HUD headers.
+
+## Modder Extension Guide
+
+Other gameplay modules can award experience or adjust levels using the public XY API:
+```c
+#include <nd/level.h>
+/* Award level progression upon completing a quest or slaying a mob */
+level_up(player_ref, 1);
+```
+
 ## The cross-module API
 
 `include/nd/level.h` holds the `XY_DECL`s:

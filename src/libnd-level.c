@@ -40,7 +40,10 @@ XY_IMPL(unsigned, level, unsigned, ref)
 {
 	unsigned lvl = 0;
 
-	nd_get(level_hd, &lvl, &ref);
+	if (nd_get(level_hd, &lvl, &ref) != 0 || lvl == 0) {
+		lvl = 1;
+		nd_put(level_hd, &ref, &lvl);
+	}
 	return lvl;
 }
 

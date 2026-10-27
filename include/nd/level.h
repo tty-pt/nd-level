@@ -33,6 +33,7 @@
 #define AXIL_ND_LEVEL_H
 
 #include <ttypt/xy.h>
+#include <nd/level-types.h>
 
 XY_DECL(unsigned, level, unsigned, ref);
 XY_DECL(int, level_up, unsigned, ref, unsigned, times);

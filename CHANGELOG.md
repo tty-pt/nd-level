@@ -1,4 +1,20 @@
-## 1.0.0
+## [1.1.0]
+
+- **Two-Header Architecture (`<nd/level-types.h>`, `<nd/level.h>`)**:
+  - Extracted public types header `<nd/level-types.h>` defining `nd_level_t` and `ND_LEVEL_DEFAULT`.
+  - Public caller header `<nd/level.h>` declaring level management XY hooks.
+- **Documentation**:
+  - Standardized README with man-src, art, and modder guide.
+
+## [1.0.1]
+
+- **macOS: link with `-undefined dynamic_lookup`.** macOS `ld` rejects
+  undefined symbols in a shared library, but `WARN` needs `qsyslog` — an
+  engine-provided function pointer resolved at `dlopen` time (Linux allows
+  this by default). `-undefined dynamic_lookup` is the Darwin equivalent, set
+  as `LDFLAGS-libnd-level-Darwin` so no other platform is affected.
+
+## [1.0.0]
 
 - **nd-level is now an installable library rather than a build artifact of the
   engine.** It builds and installs two files: `lib/libnd-level.so` and the
